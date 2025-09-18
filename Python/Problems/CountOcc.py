@@ -34,15 +34,15 @@ class LinkedList:
     
     def count(self):
         counter = 0
-        temp = self.head
+        temp = self.head 
         while temp is not None:
             counter += 1
             temp = temp.next
         return counter
     
-
+#[1,2,2,3,2,1]  =>2 
     
-    def same_elements(self, val):
+    def same_elements(self, val ):
         counter = 0
         temp = self.head
         while temp is not None:
@@ -65,4 +65,4 @@ print(l)
 print(l.count())
 
 print(l)
-print(l.same_elements(2))
+print(l.same_elements(5))
