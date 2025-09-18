@@ -52,6 +52,9 @@ class LinkedList:
         return counter
     
 
+
+
+
     
 l = LinkedList()
 l.push(1)
