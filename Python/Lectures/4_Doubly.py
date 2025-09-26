@@ -2,7 +2,7 @@ class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
-        self.prev = None
+        self.prev = None   #change
 
 
 class LinkedList:
@@ -14,11 +14,15 @@ class LinkedList:
         if self.head is None:
             self.head = new_node
             return
+        
+    #case 2
         last = self.head
         while last.next is not None:
             last = last.next
+
+
         last.next = new_node
-        new_node.prev = last
+        new_node.prev = last    #change 
 
     def __str__(self):
         ret_str = "["
