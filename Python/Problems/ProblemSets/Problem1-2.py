@@ -65,4 +65,4 @@ print(l)
 print(l.count())
 
 print(l)
-print(l.same_elements(5))
+print(l.same_elements(2))
