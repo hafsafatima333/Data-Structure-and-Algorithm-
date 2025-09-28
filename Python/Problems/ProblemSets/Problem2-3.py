@@ -1,15 +1,15 @@
 class ListNode:
-    def _init_(self, val=0, next=None):
+    def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
         
 class Node: 
-    def _init_(self, val = None):
+    def __init__(self, val = None):
         self.val = val
         self.next = None
 
 class Linkedlist:
-    def _init_(self):
+    def __init__(self):
         self.head = None
 
     def push(self, val):
@@ -26,7 +26,7 @@ class Linkedlist:
 
 
 
-    def _str_(self):
+    def __str__(self):
         ret_str = '['
         temp = self.head
         while temp is not None:
@@ -59,4 +59,60 @@ def mergeTwoLists(list1, list2): #[1,2,4] , [1,3,4]
     if list2:
         tail.next = list2
 
-    return dummy.next  # merged head
+    # return dummy.next  # merged head
+
+
+    merged_list = Linkedlist()
+    merged_list.head = dummy.next
+    return merged_list
+
+
+
+
+l1 = Linkedlist()
+for val in [1,2,4]:
+    l1.push(val)
+
+
+l2 = Linkedlist()
+for val in [1,3,4]:
+    l2.push(val)
+
+
+merged_list = mergeTwoLists(l1.head,l2.head)
+print(merged_list)
+
+
+
+
+
+
+
+
+
+
+
+
+# l1 = Linkedlist()
+# for val in [1,2,4]:
+#     l1.push(val)
+
+
+# l2 = Linkedlist()
+# for val in [1,3,4]:
+#     l2.push(val)
+
+
+
+# merged_head = mergeTwoLists(l1.head , l2.head) 
+
+# temp = merged_head
+# elements = []
+# while temp:
+#     elements.append(str(temp.val))
+#     temp = temp.next
+
+# print("Merged List:", "[" + ", ".join(elements) + "]")
+
+
+
