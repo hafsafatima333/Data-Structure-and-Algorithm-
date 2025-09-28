@@ -99,7 +99,7 @@ public:
 int main()
 {
     LinkedList l1;
-    int arr1[] = {1, 2, 3};
+    int arr1[] = {1, 2, 4};
     int size1 = sizeof(arr1) / sizeof(arr1[0]);
 
     for (int i = 0; i < size1; i++)
@@ -108,7 +108,7 @@ int main()
     }
 
     LinkedList l2;
-    int arr2[] = {1, 2, 4};
+    int arr2[] = {1, 3, 4};
     int size2 = sizeof(arr2) / sizeof(arr2[0]);
 
     for (int i = 0; i < size2; i++)
