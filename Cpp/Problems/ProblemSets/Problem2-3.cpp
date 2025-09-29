@@ -98,6 +98,7 @@ public:
 
 int main()
 {
+    cout << "If the array possess elements:" << endl;
     LinkedList l1;
     int arr1[] = {1, 2, 4};
     int size1 = sizeof(arr1) / sizeof(arr1[0]);
@@ -116,9 +117,18 @@ int main()
         l2.Push(arr2[i]);
     }
 
-    LinkedList mergedList;
+    LinkedList mergedList1;
+    mergedList1.head = mergedList1.mergedTwoLists(l1.head, l2.head);
+    cout << "Merged List: " << mergedList1.toString() << endl;
 
-    mergedList.head = mergedList.mergedTwoLists(l1.head, l2.head);
-    cout << "Merged List: " << mergedList.toString() << endl;
+    // for empty list
+    cout << "If the array is empty: " << endl;
+    LinkedList empty1; // empty list1
+    LinkedList empty2; // empty list2
+
+    LinkedList mergedList2;
+    mergedList2.head = mergedList2.mergedTwoLists(empty1.head, empty2.head);
+
+    cout << "Merged List: " << mergedList2.toString() << endl;
     return 0;
 }
