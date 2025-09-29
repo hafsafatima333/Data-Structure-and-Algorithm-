@@ -68,7 +68,7 @@ def mergeTwoLists(list1, list2): #[1,2,4] , [1,3,4]
 
 
 
-
+print("for array elements:")
 l1 = Linkedlist()
 for val in [1,2,4]:
     l1.push(val)
@@ -83,7 +83,19 @@ merged_list = mergeTwoLists(l1.head,l2.head)
 print(merged_list)
 
 
+print("for empty list: ")
 
+ll1 = Linkedlist()
+for val in []:
+    ll1.push(val)
+
+
+ll2 = Linkedlist()
+for val in []:
+    ll2.push(val)
+
+merged_list = mergeTwoLists(ll1.head , ll2.head)
+print (merged_list)
 
 
 
