@@ -143,7 +143,7 @@ class Linkedlist:
             return
 
         if node.next is None:
-            print(f"[ {node.val}", end="")
+            print(f"[ {node.val}", end="")  #4
         else:
             self.reverse_print(node.next)
             print(f" , {node.val}", end="")

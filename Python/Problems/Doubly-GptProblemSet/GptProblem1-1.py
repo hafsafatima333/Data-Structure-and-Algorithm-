@@ -47,7 +47,7 @@ class LinkedList:
         
         left = self.head # 1
         right = self.last_value() # 5
-        # while left and right => left is not None and rigght is not None
+        # while left and right => left is not None and right is not None
         # [1, 2, 3, 4, 5] target = 5
         while left and right is not None and left != right and left.prev != right:
               s = left.val + right.val # 1 + 5 = 6, 1 + 4 = 5, 2 + 3 = 5
@@ -63,16 +63,44 @@ class LinkedList:
         return pairs
     
 
-if __name__ == "__main__":
-    l = LinkedList()
-    for i in [1, 2, 3, 4, 5]:
+    def concat(self, array):
+        temp = self.head
+        # [1, 2, 3, 4, 5]
+        while temp.next is not None:
+            temp = temp.next
+        # array = [6, 7, 8] => [1,2,3,4,5,6,7,8]
+        temp.next = array.head
+        array.head.prev = temp
+
+
+l = LinkedList()
+for i in [1, 2, 3, 4, 5]:
         l.push(i)
 
-    print("Original List:", l)
-    target = 5
-    print("Target =", target)
-    print("Pairs with sum =", target, "are:", l.pairs(target))
+l2 = LinkedList()
+for i in [13, 23, 33, 34, 3]:
+        l2.push(i)
+
+print("Original List:", l)
+target = 5
+print("Target =", target)
+print("Pairs with sum =", target, "are:", l.pairs(target))
 
 
 
+l.concat(l2)
+print("Second Array: ", l)
+print("After concatination:", l )
+
+
+
+
+
+# print("Original List:", l)
+# target = 5
+# print("Target =", target)
+# print("Pairs with sum =", target, "are:", l.pairs(target))
+# l.concat(l2)
+# print("Second Array: ", l)
+# print("After concatination:", l )
     
