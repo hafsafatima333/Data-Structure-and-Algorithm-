@@ -25,9 +25,6 @@ class Node:
         self.val = val
         self.next = None
 
-
-
-
 class Linkedlist:
     def __init__(self):
         self.head = None

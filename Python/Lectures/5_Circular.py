@@ -92,28 +92,28 @@ class Ring:
         if self.head is None: 
             raise Exception("Empty list error")
         
-        last = self.get_last()
+        last = self._get_last()
         temp = self.head
-        
+
+        # if only one element is present 
         if self.head == self.head.next and self.head.val == val:
             self.head = None
             return
         
-        
+        #remove first value
         if self.head.val == val:
             self.head = self.head.next
             last.next = self.head
             return
         
-        while temp is not None:
-            if temp.val == val:
-                prev.next = temp.next
-                if temp == last:  
-                    last = prev
-                return
-            prev = temp
-            temp = temp.next
-
+        while temp is not None: #4
+            if temp.val == val:  #1 2 3 4 
+                prev.next = temp.next # 1 2 3
+                if temp == last:  # 4 = 4
+                    last = prev  # 3
+                return  
+            prev = temp  #3
+            temp = temp.next # 4
 
 
 # -------------------------
@@ -129,3 +129,4 @@ r.insert(3, 5)
 print(r)
 
 r.remove(1)
+print(r)
