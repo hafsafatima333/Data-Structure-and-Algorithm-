@@ -1,9 +1,11 @@
-# 🔄 Question 4 (Challenge):
-# Given two circular linked lists, write a function to merge them into one circular linked list.
+# Question 2 (Tricky):
+# Write a program to check whether a given circular linked list is sorted or not (in ascending order).
 # Example:
-# List 1: 1 -> 2 -> 3 -> (back to 1)
-# List 2: 4 -> 5 -> 6 -> (back to 4)
-# Output: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> (back to 1)
+# Input: 1 -> 2 -> 3 -> 4 -> 5 -> (back to 1)
+# Output: True
+# Input: 10 -> 5 -> 20 -> 30 -> (back to 10)
+# Output: False
+
 class Node:
     def __init__(self, val = None):
         self.val = val
@@ -52,40 +54,34 @@ class Ring:
         ret_str = ret_str.rstrip(", ")
         ret_str += "]"
         return ret_str
-
-    def merge(self, other):
-        if self.head is None:
-            return other
-        if other.head is None:
-            return self
-        
-        last1 = self._get_last()
-        last2 = other._get_last()
-
-        last1.next = other.head
-        last2.next = self.head
-        return self
-
-
-
-
-list1 = Ring()
-for i in [1,2,3]:
-    list1.push(i)
-
-
-list2 = Ring()
-for i in [4,5,6]:
-    list2.push(i)
     
 
-merged = list1.merge(list2)
-print("Merged List: " , merged)
+
+    def sorted(self):
+        if self.head is None or self.head.next == self.head : 
+            return True 
+
+        temp = self.head 
+        while temp.next != self.head:
+            if temp.val > temp.next.val:
+             return False
+            temp = temp.next 
+           
+        return True
+    
+
+r = Ring()
+for i in [1,4,2,3,5]:
+    r.push(i)
+print(r)
+r.sorted()
+print("The given array is not sorted: " ,r.sorted())
 
 
 
-
-
-
-
-
+r = Ring()
+for i in [1,2,3,4,5]:
+    r.push(i)
+print(r)
+r.sorted()
+print("The given array is  sorted: " ,r.sorted())
