@@ -20,7 +20,7 @@
 //     for (int i = index; i < size; i++)
 //     {
 //         arr[i] = arr[i + 1];
-//         // arr[2] = arr[3]
+//         // arr[2] = arr[3]_
 //         // arr[3] = arr[4]
 //     }
 //     // cout << endl;
