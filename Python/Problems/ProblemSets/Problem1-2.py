@@ -52,17 +52,17 @@ class LinkedList:
         return counter
     
 
+
+
+
     
 l = LinkedList()
-l.push(1)
-l.push(2)
-l.push(2)
-l.push(2)
-l.push(3)
-l.push(4)
+
+for i in [1, 2, 2, 2, 3, 4]:
+    l.push(i)
 
 print(l)
 print(l.count())
 
 print(l)
-print(l.same_elements(5))
+print(l.same_elements(2))

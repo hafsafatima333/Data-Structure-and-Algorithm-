@@ -240,26 +240,27 @@ print(sh)         # Shape ka __str__ call hoga
 def print_points(self):
     for i in self.points:
         print(i)    
-Shape.print_points = print_points
-sh.print_points()       
+   
+
+
+Shape.print_points = print_points  # same name
+sh.print_points()
 
 
 
 
 
-#________________________________________________________[INHERITANCE]____________----------------------------
-#continue = skip current iteration
-#pass = do nothing, just placeholder
+# #________________________________________________________[INHERITANCE]____________----------------------------
+# #continue = skip current iteration
+# #pass = do nothing, just placeholder
 
-#--------Inheritance:
+# #--------Inheritance:
 
-class Triangle(Shape):
-    pass
+# class Triangle(Shape):
+#     pass
 
-t = Triangle(p)
-t.print_points()
-
-
+# t = Triangle(p)
+# t.print_points()
 
 
 
@@ -267,94 +268,118 @@ t.print_points()
 
 
 
-#_________________________________________________________________________________________________________________________________________________________________________
-# now here the point is that jistrh hm c# mai virtual and override keywords use krty thy idhr aysa scene nhi ha
-# yha parenthesis ky andr jis class ko inherit krna houta ha wo likhdi jati ha faltu mai keywords and priv wgera use nh kra jata
-# Override karna ho to sirf same method ka naam likh do child class me,
-#  Python khud samajh leta hai ke ye parent ka method replace (override) kar raha hai.
 
- # simple example:
-class Animal:
-    def speak(self):
-        print("Animal is speaking")
+
+# #_________________________________________________________________________________________________________________________________________________________________________
+# # now here the point is that jistrh hm c# mai virtual and override keywords use krty thy idhr aysa scene nhi ha
+# # yha parenthesis ky andr jis class ko inherit krna houta ha wo likhdi jati ha faltu mai keywords and priv wgera use nh kra jata
+# # Override karna ho to sirf same method ka naam likh do child class me,
+# #  Python khud samajh leta hai ke ye parent ka method replace (override) kar raha hai.
+
+#  # simple example:
+# class Animal:
+#     def speak(self):
+#         print("Animal is speaking")
                              
-class Cat(Animal):
-    def speak(self): # Method override, keyword ki zarurat nahi
-        print("Cat meow")
+# class Cat(Animal):
+#     def speak(self): # Method override, keyword ki zarurat nahi
+#         print("Cat meow")
 
-c = Cat()
-c.speak()
-
-
-
-
-#===========================================================below part smjh nhi aya bahrh ma jaye...
-
-def get_area(self):
-    vertices = self.points
-    n = len(vertices) #ye count karega kitne points hain (triangle ke case me 3).
-    a = 0.0  #ye ek temporary variable hai jisme hum formula ka result step by step add karenge.
-
-    for i in range(n):
-         j = (i + 1) % n
-         a += (vertices[i].x * vertices[j].y) - (vertices[j].x * vertices[i].y)
-    return abs(a) / 2.0
-
-
-#yahaan trick hai 👇
-# i = current point index
-# j = next point index
-# % n ka matlab hai agar last point pe ho to wapas first point le lo (wrap around).
-#.........................................................................................
-# example agar 3 points hain:
-# i=0 → j=1
-# i=1 → j=2
-# i=2 → j=0 ✅ (wapas first point)
-
-Triangle.get_area = get_area
-print(t.get_area())
+# c = Cat()
+# c.speak()
 
 
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# #===========================================================below part smjh nhi aya bahrh ma jaye...
+
+# def get_area(self):
+#     vertices = self.points
+#     n = len(vertices) #ye count karega kitne points hain (triangle ke case me 3).
+#     a = 0.0  #ye ek temporary variable hai jisme hum formula ka result step by step add karenge.
+
+#     for i in range(n):
+#          j = (i + 1) % n
+#          a += (vertices[i].x * vertices[j].y) - (vertices[j].x * vertices[i].y)
+#     return abs(a) / 2.0
 
 
-#^^^^^^^^^^^^^^^^^          New Topic
-#simple code
-class Rectangle:
-    def __init__(self , length , width):
-        self.length = length
-        self.width = width
+# #yahaan trick hai 👇
+# # i = current point index
+# # j = next point index
+# # % n ka matlab hai agar last point pe ho to wapas first point le lo (wrap around).
+# #.........................................................................................
+# # example agar 3 points hain:
+# # i=0 → j=1
+# # i=1 → j=2
+# # i=2 → j=0 ✅ (wapas first point)
 
-    def area(self):
-        return self.length * self.width
+# Triangle.get_area = get_area
+# print(t.get_area())
+
+
+
+# #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+# #^^^^^^^^^^^^^^^^^          New Topic
+# #simple code
+# class Rectangle:
+#     def __init__(self , length , width):
+#         self.length = length
+#         self.width = width
+
+#     def area(self):
+#         return self.length * self.width
     
-    def perimeter(self):
-        return 2 * self.length + 2 * self.width
+#     def perimeter(self):
+#         return 2 * self.length + 2 * self.width
 
-    def __str__(self):
-        return "L: " + str(self.length) + " W: " + str(self.width)
-
-
-r = Rectangle(2, 4) 
-print(r)
-r.area()
-print(r.area())
-r.perimeter()
-print(r.perimeter())
+#     def __str__(self):
+#         return "L: " + str(self.length) + " W: " + str(self.width)
 
 
+# r = Rectangle(2, 4) 
+# print(r)
+# r.area()
+# print(r.area())
+# r.perimeter()
+# print(r.perimeter())
 
 
 
-#super => parent class ko call krna  yani rectangle ko 
-#idhr constructor override huwa hai 
-# function  call k darmayan self nhi likhty  kuky self interpreter khud dlta hai.. 
 
-#=====================================
-#inherit hui vi class  ha ye 
+
+# #super => parent class ko call krna  yani rectangle ko 
+# #idhr constructor override huwa hai 
+# # function  call k darmayan self nhi likhty  kuky self interpreter khud dlta hai.. 
+
+# #=====================================
+# #inherit hui vi class  ha ye 
+# # class Square(Rectangle):
+# #      def __init__(self, length): # constructor bnaya jo ik  hi length lega
+# #          super() .__init__(length, length)
+
+# # def __str__(self):
+# #     return "Square: " + super().__str__()
+
+# # square = Square (4)
+# # print(square.area())      
+# # print(square.perimeter()) 
+# #=====================================
+
+# # Constructor overloading ka matlab hai ke ek hi class ke andar tum multiple constructors bana sakti ho, lekin unka parameters alag-alag hote hain.
+
+
+# #Square asal me ek special rectangle hai jisme length = width hota hai.
+
+
+# # Yahan super().__init__(length, length) ka matlab hai ke parent class (Rectangle) ko dono values equal di ja rahi hain (kyunki square ke 4 sides barabar hote hain).
+
+
+
 # class Square(Rectangle):
-#      def __init__(self, length): # constructor bnaya jo ik  hi length lega
+#      def __init__(self, length): 
 #          super() .__init__(length, length)
 
 # def __str__(self):
@@ -363,33 +388,11 @@ print(r.perimeter())
 # square = Square (4)
 # print(square.area())      
 # print(square.perimeter()) 
-#=====================================
-
-# Constructor overloading ka matlab hai ke ek hi class ke andar tum multiple constructors bana sakti ho, lekin unka parameters alag-alag hote hain.
-
-
-#Square asal me ek special rectangle hai jisme length = width hota hai.
-
-
-# Yahan super().__init__(length, length) ka matlab hai ke parent class (Rectangle) ko dono values equal di ja rahi hain (kyunki square ke 4 sides barabar hote hain).
-
-
-
-class Square(Rectangle):
-     def __init__(self, length): 
-         super() .__init__(length, length)
-
-def __str__(self):
-    return "Square: " + super().__str__()
-
-square = Square (4)
-print(square.area())      
-print(square.perimeter()) 
 
 
 
 
-#==============================================================================
+# #==============================================================================
 
 
 
@@ -417,19 +420,19 @@ print(square.perimeter())
 
 #___________________________[Polymorphism] 
 
-class Students:
-    def __init__(self, name, id):
-        self.name = name
-        self.id = id
+# class Students:
+#     def __init__(self, name, id):
+#         self.name = name
+#         self.id = id
 
-    def __str__(self):
-        return f"Name: {self.name} , Id: {self.id}"
+#     def __str__(self):
+#         return f"Name: {self.name} , Id: {self.id}"
     
 
-s1 = Students("Hafsa" , "12")
-s2 = Students("titi" , "10")
+# s1 = Students("Hafsa" , "12")
+# s2 = Students("titi" , "10")
 
-print(s1.__str__())
+# print(s1.__str__())
 
-print(s2.__str__())
+# print(s2.__str__())
 

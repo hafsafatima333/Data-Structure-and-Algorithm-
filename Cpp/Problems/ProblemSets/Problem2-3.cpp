@@ -1,0 +1,134 @@
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int val;
+    Node *next;
+
+    Node(int v)
+    {
+        val = v;
+        next = nullptr;
+    }
+};
+
+class LinkedList
+{
+public:
+    Node *head;
+    LinkedList()
+    {
+        head = nullptr;
+    }
+
+    void Push(int val)
+    {
+        Node *new_node = new Node(val);
+        if (head == nullptr)
+        {
+            head = new_node;
+            return;
+        }
+
+        Node *last = head;
+        while (last->next != nullptr)
+        {
+            last = last->next;
+        }
+
+        last->next = new_node;
+    }
+
+    string toString()
+    {
+        string ret_str = "[";
+        Node *temp = head;
+        while (temp != nullptr)
+        {
+            ret_str += to_string(temp->val) + ", ";
+            temp = temp->next;
+        }
+
+        if (ret_str.size() > 1)
+        {
+            ret_str.pop_back();
+            ret_str.pop_back();
+        }
+
+        ret_str += "]";
+        return ret_str;
+    }
+
+    Node *mergedTwoLists(Node *list1, Node *list2)
+    {
+        Node *dummy = new Node(0);
+        Node *tail = dummy;
+
+        while (list1 != nullptr && list2 != nullptr)
+        {
+            if (list1->val < list2->val)
+            {
+                tail->next = list1;
+                list1 = list1->next;
+            }
+            else
+            {
+                tail->next = list2;
+                list2 = list2->next;
+            }
+            tail = tail->next;
+        }
+
+        if (list1 != nullptr)
+        {
+            tail->next = list1;
+        }
+        else
+        {
+            tail->next = list2;
+        }
+
+        Node *result = dummy->next;
+        delete dummy;
+        return result;
+    }
+};
+
+int main()
+{
+    cout << "If the array possess elements:" << endl;
+    LinkedList l1;
+    int arr1[] = {1, 2, 4};
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+
+    for (int i = 0; i < size1; i++)
+    {
+        l1.Push(arr1[i]);
+    }
+
+    LinkedList l2;
+    int arr2[] = {1, 3, 4};
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+
+    for (int i = 0; i < size2; i++)
+    {
+        l2.Push(arr2[i]);
+    }
+
+    LinkedList mergedList1;
+    mergedList1.head = mergedList1.mergedTwoLists(l1.head, l2.head);
+    cout << "Merged List: " << mergedList1.toString() << endl;
+
+    // for empty list
+    cout << "If the array is empty: " << endl;
+    LinkedList empty1; // empty list1
+    LinkedList empty2; // empty list2
+
+    LinkedList mergedList2;
+    mergedList2.head = mergedList2.mergedTwoLists(empty1.head, empty2.head);
+
+    cout << "Merged List: " << mergedList2.toString() << endl;
+    return 0;
+}

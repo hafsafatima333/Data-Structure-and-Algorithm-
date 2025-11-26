@@ -33,7 +33,7 @@ public:
             head = new_node;
             return;
         }
-
+        // Kyuki last ek pointer hai jo nodes ke beech move karega.
         Node *last = head;
         while (last->next != nullptr)
         {
@@ -62,6 +62,14 @@ public:
         ret_str += "]";
         return ret_str;
     };
+
+    //     ✅ Summary (1 Line Answers Each)
+    // Question	Answer (Simple)
+    // Node* next mein Node kyu?    ---->	Kyun ke pointer aglay Node ka address store karega.
+    // LinkedList class alag kyu?	Node structure hai; LinkedList functionality handle karti hai.
+    // Node* head kyu?	Head bhi first node ka address rakhta hai.
+    // Node* new_node = new Node(val); kyu?	Dynamic memory mein naya node banaya hai.
+    // Push mein Node* last kyu?	Traversal ke liye pointer chahiye hota hai.
 
     int count_nodes()
     {
